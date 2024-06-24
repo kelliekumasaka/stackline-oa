@@ -6,7 +6,7 @@ interface Review {
     score: number 
 }
 
-interface Sale {
+export interface Sale {
     weekEnding: string
     retailSales: number
     wholesaleSales: number
