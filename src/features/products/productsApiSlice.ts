@@ -27,4 +27,19 @@ interface Product {
     sales: Sale[]
 }
 
+interface ProductApiRes {
+    default: Product[]
+}
 
+export const productsApiSlice = createApi({
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://stackline.com/api/v1' }), 
+    reducerPath: "productsApi",
+    tagTypes: ["Products"],
+    endpoints: build => ({
+        getProducts: build.query<ProductApiRes, void>({
+            query: () => '/'
+        })
+    })
+})
+
+export const { useGetProductsQuery } = productsApiSlice
