@@ -7,11 +7,11 @@ import "./index.css"
 
 const container = document.getElementById("root")
 
+// for intents and purposes for this app, enable msw for every environment
+// in an app with an actual backend, we'd want to add an if statement to check if prod or dev
 async function enableMocking() {
   const { worker } = await import('./mocks/browser')
- 
-  // `worker.start()` returns a Promise that resolves
-  // once the Service Worker is up and ready to intercept requests.
+  
   return worker.start()
 }
 

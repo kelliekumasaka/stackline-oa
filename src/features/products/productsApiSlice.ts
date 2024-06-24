@@ -36,8 +36,9 @@ export const productsApiSlice = createApi({
     reducerPath: "productsApi",
     tagTypes: ["Products"],
     endpoints: build => ({
-        getProducts: build.query<ProductApiRes, void>({
-            query: () => '/'
+        getProducts: build.query<Product[], void>({
+            query: () => '/',
+            transformResponse: (res: ProductApiRes) => res.default
         })
     })
 })
