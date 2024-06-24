@@ -14,11 +14,10 @@
       if ('serviceWorker' in navigator) {
         window.addEventListener('sw-cached-site.js', function() {
           navigator.serviceWorker.register('mockServiceWorker.js', {
-            scope: '/',
+            scope: '/stackline-oa/',
           });
         });
-      } 
-      window.process = { env: { NODE_ENV: 'production' } };
+      };
     </script>
   </body>
 </html>

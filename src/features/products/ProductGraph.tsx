@@ -32,7 +32,6 @@ export const ProductGraph: FC<ProductGraphProps> = ({ sales }) => {
                 }
             ]}
             height={400}
-
             // dataset={sales}
         />
     )
