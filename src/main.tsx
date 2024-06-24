@@ -7,14 +7,13 @@ import "./index.css"
 
 const container = document.getElementById("root")
 
-// for intents and purposes for this app, enable msw for every environment
-// in an app with an actual backend, we'd want to add an if statement to check if prod or dev
 async function enableMocking() {
   const { worker } = await import('./mocks/browser')
+  const url = process.env.NODE_ENV === 'development' ? 'mockServiceWorker.js' : 'stackline-oa/mockServiceWorker.js'
   
-  return worker.start({
+  await worker.start({
     serviceWorker: {
-      url: '/stackline-oa/mockServiceWorker.js',
+      url,
     },
   })
 }
