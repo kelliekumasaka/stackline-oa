@@ -9,7 +9,11 @@ const container = document.getElementById("root")
 
 async function enableMocking() {
   const { worker } = await import('./mocks/browser')
-  const url = 'mockServiceWorker.js' 
+  const url = process.env.NODE_ENV === 'development' ? 'mockServiceWorker.js' : 'stackline-oa/mockServiceWorker.js'
+
+  console.log(worker)
+  console.log(url);
+  
   
   await worker.start({
     serviceWorker: {
