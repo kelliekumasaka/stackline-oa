@@ -17,7 +17,7 @@ async function enableMocking() {
   
   await worker.start({
     serviceWorker: {
-      url: 'mockServiceWorker.js',
+      url: '/stackline-oa/mockServiceWorker.js',
     },
   })
 }
