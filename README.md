@@ -117,6 +117,7 @@ Project Link: [https://github.com/kelliekumasaka/stackline-oa](https://github.co
 
 - [ChatGPT](https://chatgpt.com/) helped me out of a really tough spot, and I couldn't have done this without them
 - [StackOverflow](https://stackoverflow.com/) was a steady contributor and supporter of this project
+- You, who have read to the very bottom of this README. Thanks so much!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
