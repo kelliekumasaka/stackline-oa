@@ -4,16 +4,12 @@ import { Provider } from "react-redux"
 import App from "./App"
 import { store } from "./app/store"
 import "./index.css"
-import { worker } from "./mocks/browser"
+import { createTheme, ThemeProvider } from "@mui/material/styles"
 
 const container = document.getElementById("root")
 
 async function enableMocking() {
   const { worker } = await import('./mocks/browser')
-  // const url = process.env.NODE_ENV === 'development' ? 'mockServiceWorker.js' : 'stackline-oa/mockServiceWorker.js'
-
-  console.log(worker)
-  
   
   await worker.start({
     serviceWorker: {
@@ -22,15 +18,24 @@ async function enableMocking() {
   })
 }
 
+const theme = createTheme({
+  typography: {
+    fontFamily: ['Poppins','-apple-system', 'BlinkMacSystemFont', "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "sans-serif"].join(',')
+  },
+});
+
 if (container) {
   const root = createRoot(container)
 
   enableMocking().then(() => {
-    console.log(worker)
     root.render(
     <React.StrictMode>
       <Provider store={store}>
-        <App />
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
       </Provider>
     </React.StrictMode>,
   )})

@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from '@mui/material'
+import {Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from '@mui/material'
 import type { Sale } from './productsApiSlice'
 
 type ProductTableProps = {
@@ -8,6 +8,7 @@ type ProductTableProps = {
 
 export const ProductTable: FC<ProductTableProps> = ({ sales }) => {
     return (
+        <Box my={2}>
         <TableContainer component={Paper}>
             <Table>
                 <TableHead>
@@ -32,5 +33,6 @@ export const ProductTable: FC<ProductTableProps> = ({ sales }) => {
                 </TableBody>
             </Table>
         </TableContainer>
+        </Box>
     )
 }

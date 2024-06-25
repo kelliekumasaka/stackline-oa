@@ -1,0 +1,24 @@
+.image {
+    height: 25vh
+}
+
+.paper {
+    text-align: center;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    height: inherit;
+}
+
+.box {
+    border-bottom: 1px solid rgb(245,248,250);
+}
+
+.tag {
+    margin: 5px 
+}
+
+.lineH2 {
+    padding: 10px;
+    margin: 0px;
+}

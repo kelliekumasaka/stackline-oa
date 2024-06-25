@@ -1,9 +1,10 @@
 import { FC } from "react"
 import { useGetProductsQuery } from "./productsApiSlice"
 import Paper from '@mui/material/Paper';
-import { Grid } from "@mui/material";
+import { Box, Chip, Grid } from "@mui/material";
 import { ProductTable } from "./ProductTable";
 import { ProductGraph } from "./ProductGraph";
+import styles from "./Products.module.css"
 
 export const Products: FC = () => {
     const { data, isError, isLoading, isSuccess } = useGetProductsQuery()
@@ -25,26 +26,32 @@ export const Products: FC = () => {
     }
     
     if (isSuccess) {
-        console.log(data)
-
         return (
             <>
                 {
                     data.map(product => {
                         return (
-                            <Grid container px={3} py={10} spacing={1}>
-                                <Grid item xs={3}>
-                                    <Paper key={product.id}>
-                                        <div>
-                                            <img src={product.image}  alt={product.subtitle}/>
+                            <Grid container px={3} py={10} spacing={2} key={product.id} >
+                                <Grid item xs={3} height="900px">
+                                    <Paper className={styles.paper}>
+                                        <Box className= {styles.box} py={2}>
+                                            <img src={product.image}  alt={product.subtitle} className={styles.image}/>
                                             <h3>{product.title}</h3>
                                             <span>{product.subtitle}</span>
-                                        </div>
+                                        </Box>
+                                        <Box className= {styles.box} py={2}>
+                                            {product.tags.map((tag) => {
+                                                return (
+                                                    <Chip label={tag.toUpperCase()} className={styles.tag} />
+                                                )
+                                            }
+                                            )}
+                                        </Box>
                                     </Paper>        
                                 </Grid>
                                 <Grid item xs={9}>
-                                    <ProductTable sales={product.sales}/>
                                     <ProductGraph sales ={product.sales}/>
+                                    <ProductTable sales={product.sales}/>
                                 </Grid>
                             </Grid>
                         )

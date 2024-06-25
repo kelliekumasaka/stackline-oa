@@ -7,8 +7,9 @@ export default defineConfig({
   plugins: [react(), viteStaticCopy({
     targets: [
       {
-        src: 'src/mockServiceWorker.js', // Adjust this path to your actual file location
-        dest: '' // Copy to the root of the dist directory
+        // need the service worker for mocking API calls. typically we wouldn't serve this to prod in our build
+        src: 'src/mockServiceWorker.js',
+        dest: '' 
       }
     ]
   })],
